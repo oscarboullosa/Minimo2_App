@@ -153,6 +153,7 @@ export default function ProfileScreen() {
       console.error('Error al leer en voz alta:', error);
     }
   };
+
   
 
 const styles = StyleSheet.create({
@@ -372,6 +373,10 @@ const styles = StyleSheet.create({
                     <Text style={styles.textFoll}>Followers</Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.profileStatCountRight} onPress={() => {navigation.navigate("UsersList" as never, { userId: currentUser.uuid, mode: "following"} as never);}}>
+                    <Text style={styles.numFoll}>{currentUser.followedUser?.length}</Text>
+                    <Text style={styles.textFoll}>Following</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.profileStatCountRight} onPress={() => {navigation.navigate("Stats" as never, { userId: currentUser.uuid} as never);}}>
                     <Text style={styles.numFoll}>{currentUser.followedUser?.length}</Text>
                     <Text style={styles.textFoll}>Following</Text>
                   </TouchableOpacity>
